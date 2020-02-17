@@ -1,0 +1,9 @@
+@charset "UTF-8";
+//当我们需要布局的时候,把它当成个函数传入,在使用的时候导入,有默认参数或者传入参数。
+// 如果传的有参数会把布局改变。
+@mixin flex($direction:column,$inline:block) {
+  display: if($inline == block, flex, inline-flex); // 如果是block -> 为flex(默认的)否则为inline-flex
+  flex-direction: $direction; // 默认竖向
+  flex-wrap: wrap;  // 换行
+}
+

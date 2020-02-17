@@ -1,0 +1,38 @@
+@import "./layout";
+
+// 按钮的抽离样式
+@mixin btn($size:14px,$color:#fff,$bgc-color:#F04752,$padding:5px,$radius:5px) {
+  padding: $padding;
+  background-color: $bgc-color;
+  border-radius: $radius;
+  border: 1px solid $bgc-color;
+  font-size: $size;
+  color: $color;
+  text-align: center;
+  line-height: 1;
+  display: inline-block;
+}
+
+// 列表的抽象样式
+@mixin list($direction:column) {
+  @include flex($direction) // 继承layout的样式
+}
+
+// 面板的抽象样式
+@mixin panel($bgc-color:#fff,$padding:0,$margin:10px 0,$height:56px,$texPadding:0 16px,$color:#333,$fontSize:16px) {
+  background: $bgc-color;
+  padding: $padding;
+  margin: $margin;
+  //命中panel下的所有h4
+  > h4 {
+    height: $height;
+    line-height: $height;
+    padding: $texPadding;
+    text-overflow: ellipsis;
+    white-space: nowrap; // 不进行换行
+    overflow: hidden; // 超出隐藏显示...
+    text-align: center;
+    color: $color;
+    font-size: $fontSize;
+  }
+}
